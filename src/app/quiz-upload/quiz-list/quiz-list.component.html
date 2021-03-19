@@ -1,0 +1,11 @@
+<div *ngFor='let quiz of quizzess' class="card">
+
+    <div class="card-body">
+        <h5 class="card-title">    {{quiz.QuizName}}</h5>
+        <p class="card-text">{{quiz.Term}}</p>
+        <p class="card-text">{{quiz.Questions.length}} questions</p>
+        <p class="card-text">SubjectId:-{{quiz.SubjectId}} InstituteID:-{{quiz.InstituteID}} Term:-{{quiz.Term}}</p>
+
+      </div>
+</div>
+<a routerLink='/add-quiz'>add paper</a>
