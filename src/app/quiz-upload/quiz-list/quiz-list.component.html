@@ -1,11 +1,44 @@
-<div *ngFor='let quiz of quizzess' class="card">
+<div *ngFor="let quiz of quizzess; let i = index">
+  <mat-card class="m-3">
+    <mat-card-title>
+      {{ quiz.QuizName }}
+    </mat-card-title>
 
-    <div class="card-body">
-        <h5 class="card-title">    {{quiz.QuizName}}</h5>
-        <p class="card-text">{{quiz.Term}}</p>
-        <p class="card-text">{{quiz.Questions.length}} questions</p>
-        <p class="card-text">SubjectId:-{{quiz.SubjectId}} InstituteID:-{{quiz.InstituteID}} Term:-{{quiz.Term}}</p>
-
-      </div>
+    <p class="card-text">{{ quiz.Term }}</p>
+    <button mat-icon-button class="favorite-icon" aria-label="Notification">
+      <mat-icon matBadge="{{ quiz.Questions.length }}" matBadgeColor="warn">
+        question_answer</mat-icon
+      >
+    </button>
+    <p class="card-text">
+      SubjectId:-{{ quiz.SubjectId }} InstituteID:-{{
+        quiz.InstituteID
+      }}
+      Term:-{{ quiz.Term }}
+    </p>
+    <p>{{ subject(quiz.SubjectId) }} {{ i }}</p>
+    <button
+      mat-mini-fab
+      color="warn"
+      aria-label="Example icon button with a delete icon"
+      routerLink="/add-question/{{ quiz._id }}"
+      matTooltip="Add new Question..."
+      [matTooltipShowDelay]="150"
+    >
+      <mat-icon>edit_note</mat-icon>
+    </button>
+  </mat-card>
 </div>
-<a routerLink='/add-quiz'>add paper</a>
+
+<div class="float-button">
+  <button
+    mat-fab
+    color="primary"
+    aria-label="Add-New-Paper"
+    routerLink="/add-quiz"
+    matTooltip="Add new Paper..."
+    [matTooltipShowDelay]="150"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

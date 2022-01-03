@@ -8,11 +8,19 @@ import { ISubject } from '../models/subject';
   providedIn: 'root'
 })
 export class SubjectService {
-  configUrl= environment.apiUrl+'/subject'
+  configUrl = environment.apiUrl + '/subject'
 
-  constructor(private _http:HttpClient) { }
+  constructor(private _http: HttpClient) { }
 
-  GetSubject():Observable<ISubject[]> {
+  GetSubject(): Observable<ISubject[]> {
     return this._http.get<ISubject[]>(this.configUrl)
+  }
+
+  GetSubjectById(id: any) {
+    const url: string = this.configUrl + "/" + id;
+    let subject
+    this._http.get(url).subscribe(res => subject = res)
+    console.log(subject)
+
   }
 }

@@ -1,0 +1,16 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+.right {
+  padding-right: 40px;
+}
+
+.list {
+  color: #673bb7;
+}
+.list:hover {
+  color: white;
+  background-color: #663bb770;
+
+  cursor: pointer;
+}

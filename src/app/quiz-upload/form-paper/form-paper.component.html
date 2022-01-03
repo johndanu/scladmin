@@ -1,16 +1,39 @@
-<form [formGroup]="this.paper">
-    <label for="instituteName">Institute Name</label>
-    <select name="Institute"  formControlName="InstituteID" required  id="Institute">
-        <option *ngFor='let institute of institutes' value="{{institute._id}}">{{institute.name}}</option>
-    </select><br>
+<mat-card class="m-3">
+  <form [formGroup]="this.paper">
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Institute Name</mat-label>
+      <mat-select name="Institute" formControlName="InstituteID" required>
+        <mat-option
+          *ngFor="let institute of institutes"
+          [value]="institute._id"
+        >
+          {{ institute.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br />
+    <!-- here -->
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Subject</mat-label>
+      <mat-select name="Subject" formControlName="SubjectId" required>
+        <mat-option *ngFor="let subject of subjects" [value]="subject._id">
+          {{ subject.subject }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br />
+    <mat-form-field class="w-100">
+      <mat-label>Quiz Name</mat-label>
+      <input matInput placeholder="Quiz Name" formControlName="QuizName" />
+    </mat-form-field>
 
-    <label for="Subject">Subject</label>
-    <select name="Subject"  formControlName="SubjectId" required>
-        <option *ngFor='let subject of subjects' value="{{subject._id}}">{{subject.subject}}</option>
-    </select><br>
+    <mat-form-field class="w-100">
+      <mat-label>Term</mat-label>
+      <input matInput placeholder="Term" formControlName="Term" />
+    </mat-form-field>
 
-    <input placeholder="Quiz Name" formControlName="QuizName" type="text"><br>
-    <input placeholder="Term" formControlName="Term" type="text"><br>
-    <button class="btn btn-primary" (click)="onSubmit()">Submit </button>
-    {{paper.value|json}}
-</form>
+    <button class="btn btn-primary form-control" (click)="onSubmit()">
+      Add subject
+    </button>
+  </form>
+</mat-card>

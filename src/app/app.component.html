@@ -1,3 +1,35 @@
-<div class="container">
+<mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>SchoolBag Admin</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="favorite-icon" aria-label="Notification">
+    <mat-icon matBadge="5" matBadgeColor="warn">circle_notifications</mat-icon>
+  </button>
+</mat-toolbar>
+<div class="row">
+  <div class="col-3">
+    <mat-list role="list">
+      <mat-list-item role="listitem" class="list" routerLink="/">
+        <mat-icon class="right">home</mat-icon> Home
+      </mat-list-item>
+      <mat-divider> </mat-divider>
+      <mat-list-item role="listitem" class="list" routerLink="/list">
+        <mat-icon class="right">edit_note</mat-icon> Edit Paper
+      </mat-list-item>
+      <mat-divider> </mat-divider>
+      <mat-list-item role="listitem" class="list" routerLink="/add-quiz">
+        <mat-icon class="right">add</mat-icon> Add Paper
+      </mat-list-item>
+      <mat-divider> </mat-divider>
+    </mat-list>
+  </div>
+  <div class="col-9">
     <router-outlet></router-outlet>
+  </div>
 </div>

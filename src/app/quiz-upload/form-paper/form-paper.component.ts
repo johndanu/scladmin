@@ -18,18 +18,21 @@ export class FormPaperComponent implements OnInit {
     QuizName: new FormControl(''),
     Term: new FormControl('')
   })
-  constructor(private quizService: QuizServiceService, 
-    private instituteService: IntituteService, 
-    private subjectService:SubjectService) { }
+  constructor(private quizService: QuizServiceService,
+    private instituteService: IntituteService,
+    private subjectService: SubjectService) { }
 
   ngOnInit(): void {
     this.instituteService.getInstitutes()
       .subscribe(
-        data => this.institutes = data
+        (data) => {
+          this.institutes = data
+          console.log(data);
+        }
       )
-      this.subjectService.GetSubject()
+    this.subjectService.GetSubject()
       .subscribe(
-        data => this.subjects =data
+        data => this.subjects = data
       )
   }
   onSubmit() {
