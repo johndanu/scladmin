@@ -14,4 +14,8 @@ export class IntituteService {
   getInstitutes():Observable<IInstitute[]> {
     return this._http.get<IInstitute[]>(this.configUrl)
   }
+
+  postInstitute(data:any){
+    return this._http.post(this.configUrl ,data)
+  }
 }

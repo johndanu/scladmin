@@ -12,6 +12,9 @@ import { QuizListComponent } from './quiz-upload/quiz-list/quiz-list.component';
 import { AddQuestionComponent } from './quiz-upload/add-question/add-question.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
+import { SubjectAddComponent } from './quiz-upload/subject/subject-add/subject-add.component';
+import { InstituteComponent } from './quiz-upload/institute/institute/institute.component';
+import { StreamComponent } from './quiz-upload/stream/stream.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { HomeComponent } from './home/home.component';
     FormPaperComponent,
     QuizListComponent,
     AddQuestionComponent,
-    HomeComponent
+    HomeComponent,
+    SubjectAddComponent,
+    InstituteComponent,
+    StreamComponent
   ],
   imports: [
     BrowserModule,

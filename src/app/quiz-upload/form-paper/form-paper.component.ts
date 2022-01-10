@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizServiceService } from '../../services/quiz-service.service';
 import { IntituteService } from '../../services/institute.service';
-import { FormControl, FormGroup } from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { SubjectService } from 'src/app/services/subject.service';
 
 @Component({
@@ -13,11 +13,13 @@ export class FormPaperComponent implements OnInit {
   public institutes: any = []
   public subjects: any = []
   public paper = new FormGroup({
-    InstituteID: new FormControl(''),
-    SubjectId: new FormControl(''),
-    QuizName: new FormControl(''),
-    Term: new FormControl('')
+    InstituteID: new FormControl('',Validators.required),
+    SubjectName: new FormControl(''),
+    ExamPaperName: new FormControl(''),
+    //Term: new FormControl(''),
+    Grade: new FormControl('')
   })
+
   constructor(private quizService: QuizServiceService,
     private instituteService: IntituteService,
     private subjectService: SubjectService) { }
@@ -36,6 +38,7 @@ export class FormPaperComponent implements OnInit {
       )
   }
   onSubmit() {
+    console.log(this.paper.value);
     this.quizService.AddPaper(this.paper.value)
       .subscribe(
         (data: any) => console.log('success', data),
@@ -43,8 +46,5 @@ export class FormPaperComponent implements OnInit {
       )
 
   }
-
-
-
 
 }

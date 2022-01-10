@@ -4,7 +4,5 @@ export interface IInstitute {
     address: String
     city: String
     phoneNo: String
-    available: [
-        String
-    ]
+    logo: Object
 }
