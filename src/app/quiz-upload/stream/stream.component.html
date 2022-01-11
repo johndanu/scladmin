@@ -1,0 +1,36 @@
+<mat-card class="m-3">
+    
+    <form [formGroup]="this.streams">
+    
+      <mat-form-field class="w-100">
+        <mat-label>Stream Name</mat-label>
+        <input matInput placeholder="Stream Name" formControlName="StreamName" />
+      </mat-form-field>
+      <br />
+  
+
+    <div *ngFor="let subject of subjects">
+      <input type="checkbox" formArrayName="SubjectName" name="{{subject.subject}}" value="{{subject.subject}}" (change)="getSubject($event,subject.subject)">{{subject.subject}}
+
+    </div>
+
+  
+  
+      <br />
+  
+      <div formArrayName="Grade">
+        <div>
+          <button type="button" (click)="onAddGrade()">Add Grades</button>
+          <div class="form-group" *ngFor="let grade of gradeControl; let i = index">
+            <input type="text" class="form-control" [formControlName]="i">
+          </div>
+        </div>
+      </div>
+
+      
+      <button class="btn btn-primary form-control" (click)="addStream()">
+        Add Stream
+      </button>
+      
+    </form>
+  </mat-card>
