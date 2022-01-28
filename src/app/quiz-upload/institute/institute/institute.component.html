@@ -1,0 +1,34 @@
+<mat-card class="m-3">
+    <form [formGroup]="this.institutes">
+        <mat-form-field class="w-100">
+            <mat-label>Institute Name</mat-label>
+            <input matInput placeholder="Institute Name" formControlName="name" />
+          </mat-form-field>
+
+          <mat-form-field class="w-100">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="Address" formControlName="address" />
+          </mat-form-field>
+
+          <mat-form-field class="w-100">
+            <mat-label>City</mat-label>
+            <input matInput placeholder="City" formControlName="city" />
+          </mat-form-field>
+
+          <mat-form-field class="w-100">
+            <mat-label>Phone Number</mat-label>
+            <input matInput placeholder="Phone Number" formControlName="phoneNo" />
+          </mat-form-field>
+
+          <label>Logo : </label><br>
+            <input  type="file" accept=".jpg, .png, .jpeg" placeholder="Logo" formControlName="logo" (change)="imgUpload($event)">
+            <img [src]="image" class="logo"
+            onerror="this.onerror=null;" width="80px" height="80px">
+            <br><br><br>
+          <button class="btn btn-primary form-control" (click)="instituteSubmit()" >
+            Add Institute
+          </button>
+          <!-- {{institutes.value | json}} -->
+    </form>
+
+</mat-card>

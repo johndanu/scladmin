@@ -1,16 +1,18 @@
 export interface IQuiz{
     _id:String,
-    InstituteName:string,
+   // InstituteName:string,
     InstituteID:string,
-    Subject:string,
-    SubjectId:string,
-    QuizName:string,
+    SubjectName:string,
+    //SubjectId:string,
+    ExamPaperName:string,
     Questions:[
         {
             _id:string,
             Question:string,
             Answers:[String],
-            CorrectAnswer:Number
+            CorrectAnswer:Number,
+            path:Object
         }
-    ]
+    ],
+    Grade:Number
 }

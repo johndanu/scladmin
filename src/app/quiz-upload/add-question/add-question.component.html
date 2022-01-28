@@ -1,1 +1,40 @@
-<p>add-question works!</p>
+<mat-card class="m-3">
+    <form [formGroup]="this.questions">
+        <mat-form-field class="w-100">
+            <mat-label>Question</mat-label>
+            <input matInput placeholder="Question" formControlName="question" />
+          </mat-form-field>
+
+          <!-- <mat-form-field class="w-100">
+            <mat-label>Answers</mat-label>
+            <input matInput placeholder="Answers" formControlName="answers" />
+          </mat-form-field> -->
+   
+          <mat-form-field class="w-100">
+            <mat-label>Correct Answer</mat-label>
+            <input matInput placeholder="Correct Answer" formControlName="correctAnswer" />
+          </mat-form-field>
+
+          <label>Image : </label><br>
+            <input  type="file" accept=".jpg, .png, .jpeg" placeholder="Image" formControlName="Path" (change)="imgUpload($event)">
+            <img [src]="image" class="Path"
+            onerror="this.onerror=null;" width="80px" height="80px">
+            <br><br><br>
+
+            <div formArrayName="answers">
+              <div>
+                <button type="button" (click)="onAddAnswers()">Add Answers</button>
+                <div class="form-group" *ngFor="let answers of answersControl; let i = index">
+                  <input type="text" class="form-control" [formControlName]="i">
+                </div>
+              </div>
+            </div>
+
+          <button class="btn btn-primary form-control" (click)="questionAdd()" >
+            Add Question
+          </button>
+           {{questions.value | json}}
+    </form>
+    
+</mat-card>
+

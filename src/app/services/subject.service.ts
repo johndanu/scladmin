@@ -23,4 +23,9 @@ export class SubjectService {
     console.log(subject)
 
   }
+
+  PostSubject(data:any){
+    return this._http.post(this.configUrl ,data)
+  
+  }
 }
