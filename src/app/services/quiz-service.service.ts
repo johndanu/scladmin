@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpParams } from "@angular/common/http";
 
 
 import { Router } from '@angular/router';
@@ -14,7 +15,7 @@ export class QuizServiceService {
   private configUrl = environment.apiUrl + '/quiz/'
 
   constructor(private router: Router, private _http: HttpClient) { }
-
+public published:any
 
 
   AddPaper(data: any) {
@@ -22,7 +23,10 @@ export class QuizServiceService {
   }
 
   GetQuiz(): Observable<IQuiz[]> {
-    return this._http.get<IQuiz[]>(this.configUrl)
+    let params = new HttpParams();
+    params = params.append('published', "true");
+    return this._http.get<IQuiz[]>(this.configUrl,{params: params})
+    
   }
   updateQuestion(data:any,id:any){
     console.log(data.value);

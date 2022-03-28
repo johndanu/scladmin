@@ -15,6 +15,9 @@ import { HomeComponent } from './home/home.component';
 import { SubjectAddComponent } from './quiz-upload/subject/subject-add/subject-add.component';
 import { InstituteComponent } from './quiz-upload/institute/institute/institute.component';
 import { StreamComponent } from './quiz-upload/stream/stream.component';
+import { ExamPaperComponent } from './quiz-upload/exam-paper/exam-paper.component';
+import { ViewQuestionComponent } from './quiz-upload/view-question/view-question.component';
+import { GetInstituteComponent } from './quiz-upload/get-institute/get-institute.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { StreamComponent } from './quiz-upload/stream/stream.component';
     HomeComponent,
     SubjectAddComponent,
     InstituteComponent,
-    StreamComponent
+    StreamComponent,
+    ExamPaperComponent,
+    ViewQuestionComponent,
+    GetInstituteComponent
   ],
   imports: [
     BrowserModule,

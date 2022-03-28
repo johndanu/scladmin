@@ -1,0 +1,10 @@
+
+
+<div *ngFor="let institute of institutes;">
+    <mat-card class="m-3">
+        <img [src]="institute.logo.url" alt="" width="100px" height="100px">
+        <h2>{{institute.name}}</h2>
+        <h3>City : {{institute.city}}</h3>
+        <h3>Phone No :{{institute.phoneNo}}</h3>
+    </mat-card>
+</div>

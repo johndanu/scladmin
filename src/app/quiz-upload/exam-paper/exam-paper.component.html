@@ -1,0 +1,8 @@
+<div *ngIf="!loading; else elseBlock">
+<div *ngFor="let examPaper of examPapers.Questions;">
+    
+    <h6>{{examPaper | json}}</h6> 
+</div>
+</div>
+<ng-template #elseBlock>loading
+</ng-template>

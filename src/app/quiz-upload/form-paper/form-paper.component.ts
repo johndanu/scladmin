@@ -16,7 +16,6 @@ export class FormPaperComponent implements OnInit {
     InstituteID: new FormControl('',Validators.required),
     SubjectName: new FormControl(''),
     ExamPaperName: new FormControl(''),
-    //Term: new FormControl(''),
     Grade: new FormControl('')
   })
 

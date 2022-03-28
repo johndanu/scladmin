@@ -13,7 +13,8 @@ export class AddQuestionComponent implements OnInit {
     question:new FormControl(''),
     answers:new FormArray([]),
     correctAnswer:new FormControl(''),
-    Path:new FormControl('')
+    Path:new FormControl(''),
+    Explanation:new FormControl('')
     
   })
   public selectedImage:any;
@@ -78,10 +79,6 @@ public questionId:any;
       } else {
         formData.append(key, this.questions.value[key]);
       }
-
-        // formData.append(key, );
-        // console.log(key,"for");
-        // console.log(this.questions.value[key],"for");
         
         
       }
@@ -89,7 +86,6 @@ public questionId:any;
       
       this.questionService.updateQuestion(formData,this.questionId).subscribe((data:any)=>{
         console.log(data);
-       // console.log(this.institutes.value);
        console.log(this.questions.value);
       }
       , err => {

@@ -15,10 +15,14 @@
             <input matInput placeholder="Correct Answer" formControlName="correctAnswer" />
           </mat-form-field>
 
+          <mat-form-field class="w-100">
+            <mat-label>Explanation</mat-label>
+            <input matInput placeholder="Explanation" formControlName="Explanation" />
+          </mat-form-field>
+
           <label>Image : </label><br>
             <input  type="file" accept=".jpg, .png, .jpeg" placeholder="Image" formControlName="Path" (change)="imgUpload($event)">
-            <img [src]="image" class="Path"
-            onerror="this.onerror=null;" width="80px" height="80px">
+            
             <br><br><br>
 
             <div formArrayName="answers">
@@ -29,11 +33,35 @@
                 </div>
               </div>
             </div>
+<br><br>
 
+            <div>
+              <p>Question : {{questions.value.question}}</p>
+              <p>
+
+                Answers : <br> 
+                {{questions.value.answers[0]}} <br>
+                {{questions.value.answers[1]}}<br>
+                {{questions.value.answers[2]}}<br>
+                {{questions.value.answers[3]}}<br>
+                {{questions.value.answers[4]}}
+              </p>
+              <p>
+                Explanation : {{questions.value.Explanation}}
+              </p>
+              <p>
+                <img [src]="image" class="Path"
+            onerror="this.onerror=null;" width="80px" height="80px">
+              </p>
+            </div>
+
+            <br><br>
           <button class="btn btn-primary form-control" (click)="questionAdd()" >
             Add Question
           </button>
-           {{questions.value | json}}
+           
+    
+           
     </form>
     
 </mat-card>
