@@ -1,9 +1,7 @@
 export interface IQuiz{
     _id:String,
-   // InstituteName:string,
     InstituteID:string,
     SubjectName:string,
-    //SubjectId:string,
     ExamPaperName:string,
     Questions:[
         {

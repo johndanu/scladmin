@@ -27,6 +27,16 @@
     >
       <mat-icon>edit_note</mat-icon>
     </button>
+    <button
+    mat-mini-fab
+    color="warn"
+    aria-label="Example icon button with a delete icon"
+    routerLink="/view-question/{{ quiz._id }}"
+    matTooltip="view Question..."
+    [matTooltipShowDelay]="150"
+  >
+    <mat-icon>view_list</mat-icon>
+  </button>
   </mat-card>
 </div>
 

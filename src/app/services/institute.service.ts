@@ -9,7 +9,7 @@ import { IInstitute } from '../models/institute';
 })
 export class IntituteService {
   configUrl = environment.apiUrl + '/institute'
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient) { }                 
 
   getInstitutes():Observable<IInstitute[]> {
     return this._http.get<IInstitute[]>(this.configUrl)
