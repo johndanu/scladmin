@@ -1,8 +1,9 @@
-
 <div *ngFor="let examPaper of examPapers.Questions;let indexOfelement=index;">
     <mat-card class="m-3">
-        <h3>{{indexOfelement + 1}} . {{examPaper.Question}} ?</h3>
-        <img [src]="examPaper.Path.url" alt="" width="100px" height="100px">
+        <h3>{{indexOfelement + 1}} . {{examPaper.Question}}</h3>
+        <div *ngIf="examPaper.Path?.url">
+            <img [src]="examPaper.Path.url" alt="" width="100px" height="100px">
+        </div>
         <div>
             <div *ngFor="let answer of examPaper.Answers;let i=index;">
                 <span [ngClass] = "{'correct':(i+1) == examPaper.CorrectAnswer}" >
