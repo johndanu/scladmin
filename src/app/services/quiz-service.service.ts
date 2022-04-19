@@ -12,7 +12,7 @@ import { IQuiz } from '../models/quiz';
   providedIn: 'root'
 })
 export class QuizServiceService {
-  private configUrl = environment.apiUrl + '/quiz/'
+  private configUrl = environment.apiUrl + '/quiz'
   public quizState:any
   constructor(private router: Router, private _http: HttpClient) { }
 public published:any
