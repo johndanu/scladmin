@@ -1,13 +1,1 @@
-<mat-card class="m-3">
-    <form [formGroup]="this.subjects">
-        <mat-form-field class="w-100">
-            <mat-label>Subject Name</mat-label>
-            <input matInput placeholder="Subject Name" formControlName="subject" />
-          </mat-form-field>
 
-          <button class="btn btn-primary form-control" (click)="subjectSubmit()" >
-            Add subject
-          </button>
-          {{subjects.value | json}}
-    </form>
-</mat-card>
