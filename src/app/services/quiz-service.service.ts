@@ -13,7 +13,7 @@ import { IQuiz } from '../models/quiz';
 })
 export class QuizServiceService {
   private configUrl = environment.apiUrl + '/quiz/'
-
+  public quizState:any
   constructor(private router: Router, private _http: HttpClient) { }
 public published:any
 
@@ -22,9 +22,11 @@ public published:any
     return this._http.post<any>(this.configUrl, data)
   }
 
-  GetQuiz(): Observable<IQuiz[]> {
+  GetQuiz(value:any): Observable<IQuiz[]> { 
     let params = new HttpParams();
-    params = params.append('published', "true");
+    params = params.append('published', value.toString());
+    console.log(value);
+    
     return this._http.get<IQuiz[]>(this.configUrl,{params: params})
     
   }

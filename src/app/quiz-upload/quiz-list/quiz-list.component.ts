@@ -8,12 +8,14 @@ import { SubjectService } from 'src/app/services/subject.service';
   styleUrls: ['./quiz-list.component.css']
 })
 export class QuizListComponent implements OnInit {
-  public quizzess: any = []
+  public quizzess: any = [] 
+  public heading: string = '';
 
-  constructor(private quizService: QuizServiceService, private subjectService: SubjectService) { }
+  constructor(public quizService: QuizServiceService, private subjectService: SubjectService) { }
 
   ngOnInit(): void {
-    this.quizService.GetQuiz()
+    this.heading = "ALL EXAM PAPERS"
+    this.quizService.GetQuiz("all")
       .subscribe(
         data => this.quizzess = data
       )
@@ -22,5 +24,18 @@ export class QuizListComponent implements OnInit {
     // this.subjectService.GetSubjectById(id)
     return "hellooo"
   }
+
+  onItemSelector(Boolvalue:any) {
+    if (Boolvalue == true) {
+      this.heading = "PUBLISHED EXAM PAPERS"
+    } else {
+      this.heading = "NOT PUBLISHED EXAM PAPERS"
+    }
+    this.quizService.quizState = Boolvalue
+    this.quizService.GetQuiz(Boolvalue)
+    .subscribe(
+      data => this.quizzess = data
+    )
+    }
 
 }
