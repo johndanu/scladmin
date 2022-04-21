@@ -66,3 +66,23 @@
     
 </mat-card>
 
+<div *ngFor="let examPaper of examPapers.Questions.reverse();let indexOfelement=index;">
+
+
+  <mat-card class="m-3">
+      <h3>{{indexOfelement + 1}}. {{examPaper.Question}}</h3>
+      
+      <div *ngIf="examPaper.Path?.url">
+          <img [src]="examPaper.Path.url" alt="" width="100px" height="100px">
+      </div>
+      <div>
+          <div *ngFor="let answer of examPaper.Answers;let i=index;">
+              <span [ngClass] = "{'correct':(i+1) == examPaper.CorrectAnswer}" >
+                  {{i+1}} . {{answer}}
+              </span>
+          </div>
+      </div>
+      <h3>Explanation : {{examPaper.Explanation}}</h3>
+  </mat-card>
+</div>
+

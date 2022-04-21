@@ -14,5 +14,11 @@ export class ExamPaperService {
   getExamPaper(id:any): Observable<IExamPaper[]> {
     return this._http.get<IExamPaper[]>(this.configUrl+id)
   }
+
+  editState(id:any,Published:any){
+    console.log(Published);
+    
+    return this._http.patch(this.configUrl+"published/"+id,Published)
+  }
  
 }

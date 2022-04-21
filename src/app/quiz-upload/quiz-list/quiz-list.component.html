@@ -4,17 +4,19 @@
     <h1 id="exam-heading"><b>{{heading}}</b></h1> 
   </div>
 <div class="top-button">
-  <button type="button" class="btn btn-dark" (click)="onItemSelector(true)">TRUE</button>
-  <button type="button" class="btn btn-dark" (click)="onItemSelector(false)">FALSE</button>
+  <button type="button" class="btn btn-dark" *ngIf="this.isButtonVisible3"  (click)="onItemSelector('all')">Show All Papers</button>
+
+  <button type="button" class="btn btn-dark" *ngIf="this.isButtonVisible1"  (click)="onItemSelector(true)">View Published Papers</button>
+  <button type="button" class="btn btn-dark" *ngIf="this.isButtonVisible2" (click)="onItemSelector(false)">View Papers Not Yet Published</button>
 </div>
 </div>
 <div *ngFor="let quiz of quizzess; let i = index">
   <mat-card class="m-3">
     <mat-card-title>
-      {{ quiz.QuizName }}
+      {{ quiz.ExamPaperName }}
     </mat-card-title>
 
-    <p class="card-text">Term:-{{ quiz.Term }}</p>
+    <p class="card-text">Subject:-{{ quiz.SubjectName }}</p>
     <button mat-icon-button class="favorite-icon" aria-label="Notification">
       <mat-icon matBadge="{{ quiz.Questions.length }}" matBadgeColor="warn">
         question_answer</mat-icon

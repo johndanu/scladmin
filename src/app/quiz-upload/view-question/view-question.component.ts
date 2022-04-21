@@ -31,4 +31,20 @@ export class ViewQuestionComponent implements OnInit {
       )
   }
 
+  publish(id:any){
+    console.log(id);
+    let obj = {
+      Published:true
+    }
+    this.examPaper.editState(id,obj).subscribe(data=>{
+      console.log("ok");
+     
+    },
+    err=>console.log(err),
+    ()=>{
+      console.log('success')
+  }
+    )
+  }
+
 }
