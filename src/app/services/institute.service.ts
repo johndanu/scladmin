@@ -12,10 +12,14 @@ export class IntituteService {
   constructor(private _http: HttpClient) { }
 
   getInstitutes(): Observable<IInstitute[]> {
+    console.log(environment.apiUrl);
+
     return this._http.get<IInstitute[]>(this.configUrl)
   }
 
   postInstitute(data: any) {
+    console.log(environment.apiUrl);
+
     return this._http.post(this.configUrl, data)
   }
 }

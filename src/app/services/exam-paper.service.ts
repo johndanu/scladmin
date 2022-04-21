@@ -16,7 +16,7 @@ export class ExamPaperService {
   }
 
   editState(id: any, Published: any) {
-    console.log(Published);
+    console.log(environment.apiUrl);
 
     return this._http.patch(this.configUrl + "published/" + id, Published)
   }
