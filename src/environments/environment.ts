@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://schoolbagapi.herokuapp.com'
+  apiUrl: 'https://sclbag.herokuapp.com'
 };
 
 /*
