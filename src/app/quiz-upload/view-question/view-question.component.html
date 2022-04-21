@@ -1,8 +1,15 @@
-<div>
-    <button>Publish Exam Paper</button>
+<div class="heading">
+    <br><br>
+    <h1><b>Check Questions</b></h1>
 </div>
+    <div class="button">
+        <button class="btn btn-dark" *ngIf="examPapers.Published ==false" (click)="publish(examPapers._id)">Publish Exam Paper</button>
+    </div>
+   
 
 <div *ngFor="let examPaper of examPapers.Questions;let indexOfelement=index;">
+
+
     <mat-card class="m-3">
         <h3>{{indexOfelement + 1}} . {{examPaper.Question}}</h3>
         <div *ngIf="examPaper.Path?.url">

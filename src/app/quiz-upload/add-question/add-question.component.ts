@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { ExamPaperService } from 'src/app/services/exam-paper.service';
 import { QuizServiceService } from 'src/app/services/quiz-service.service';
 @Component({
   selector: 'app-add-question',
@@ -20,7 +21,10 @@ export class AddQuestionComponent implements OnInit {
   public selectedImage:any;
 public image:any;
 public questionId:any;
-  constructor(private questionService:QuizServiceService , private route:ActivatedRoute) { }
+public id:any
+public examPapers: any = []
+  public loading = true;
+  constructor(private questionService:QuizServiceService , private route:ActivatedRoute , private examPaper:ExamPaperService) { }
 
   get answersControl(){
     return (<FormArray>this.questions.get('answers')).controls
@@ -31,6 +35,21 @@ public questionId:any;
       console.log(data.id);
       this.questionId = data.id;
     })
+
+    this.route.params.subscribe( params =>{
+      this.id = params.id;
+    });
+    this.examPaper.getExamPaper(this.id)
+      .subscribe(
+        data => this.examPapers = data,
+        err=>{
+          console.log(err);
+        },
+        ()=>{
+          this.loading = false
+        }
+
+      )
   }
 
   onAddAnswers(){
