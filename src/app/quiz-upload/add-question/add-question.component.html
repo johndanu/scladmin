@@ -1,4 +1,13 @@
+<br>
+  <h1 class="head"><b>{{examPapers.ExamPaperName}}</b></h1>
+
+<br>
 <mat-card class="m-3">
+
+  <div>
+    <br>
+      <h1 class="no"><b>Add Question No - {{examPapers.Questions.length + 1}}</b></h1>
+    </div>
     <form [formGroup]="this.questions">
         <mat-form-field class="w-100">
             <mat-label>Question</mat-label>
@@ -68,12 +77,12 @@
 
 <div *ngFor="let examPaper of examPapers.Questions.reverse();let indexOfelement=index;">
 
-
   <mat-card class="m-3">
-      <h3>{{indexOfelement + 1}}. {{examPaper.Question}}</h3>
+      <h3>{{examPapers.Questions.length - indexOfelement}}. {{examPaper.Question}}</h3>
       
       <div *ngIf="examPaper.Path?.url">
-          <img [src]="examPaper.Path.url" alt="" width="100px" height="100px">
+        
+       <a href={{examPaper.Path.url}} target="_blank" rel="noopener noreferrer">image</a>   
       </div>
       <div>
           <div *ngFor="let answer of examPaper.Answers;let i=index;">
